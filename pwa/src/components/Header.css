@@ -1,0 +1,36 @@
+.header {
+    background: var(--primary);
+    padding: var(--spacing-md);
+    border-bottom-left-radius: var(--radius-xl);
+    border-bottom-right-radius: var(--radius-xl);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.logo-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.logo-text h1 {
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.logo-text p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+}

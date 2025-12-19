@@ -1,0 +1,301 @@
+{
+    "allergens": {
+        "gluten": {
+            "name": "Gluten",
+            "keywords": [
+                "gluten",
+                "buğday",
+                "arpa",
+                "çavdar",
+                "yulaf",
+                "bulgur",
+                "simit",
+                "un",
+                "ekmek",
+                "makarna",
+                "bisküvi",
+                "kraker",
+                "pasta",
+                "börek"
+            ],
+            "description": "Tahıl bazlı proteindir. Çölyak hastaları için tehlikelidir."
+        },
+        "süt": {
+            "name": "Süt Ürünleri",
+            "keywords": [
+                "süt",
+                "peynir",
+                "yoğurt",
+                "tereyağı",
+                "krema",
+                "kaymak",
+                "laktos",
+                "laktoz",
+                "kazein",
+                "whey",
+                "süt tozu",
+                "süt proteini",
+                "peynir altı suyu"
+            ],
+            "description": "Laktoz intoleransı veya süt alerjisi olanlar için uygun değildir."
+        },
+        "yumurta": {
+            "name": "Yumurta",
+            "keywords": [
+                "yumurta",
+                "yumurta akı",
+                "yumurta sarısı",
+                "ovalbumin",
+                "lizozim",
+                "mayonez"
+            ],
+            "description": "Yumurta alerjisi olanlar için tehlikelidir."
+        },
+        "fındık": {
+            "name": "Fındık ve Kuruyemişler",
+            "keywords": [
+                "fındık",
+                "fıstık",
+                "ceviz",
+                "badem",
+                "antep fıstığı",
+                "kaju",
+                "yer fıstığı",
+                "çam fıstığı",
+                "hindistan cevizi",
+                "macadamia"
+            ],
+            "description": "Kuruyemiş alerjisi ciddi reaksiyonlara yol açabilir."
+        },
+        "soya": {
+            "name": "Soya",
+            "keywords": [
+                "soya",
+                "soya fasulyesi",
+                "soya proteini",
+                "soya sosu",
+                "tofu",
+                "edamame",
+                "soya yağı",
+                "soya lesitini"
+            ],
+            "description": "Soya alerjisi olanlar için uygun değildir."
+        },
+        "balık": {
+            "name": "Balık",
+            "keywords": [
+                "balık",
+                "somon",
+                "ton",
+                "sardalya",
+                "uskumru",
+                "hamsi",
+                "levrek",
+                "çipura",
+                "balık yağı",
+                "omega-3"
+            ],
+            "description": "Balık alerjisi olanlar için tehlikelidir."
+        },
+        "kabuklu deniz ürünleri": {
+            "name": "Kabuklu Deniz Ürünleri",
+            "keywords": [
+                "karides",
+                "ıstakoz",
+                "yengeç",
+                "midye",
+                "istiridye",
+                "kalamar",
+                "ahtapot",
+                "deniz tarağı"
+            ],
+            "description": "Kabuklu deniz ürünleri alerjisi ciddi reaksiyonlara neden olabilir."
+        },
+        "susam": {
+            "name": "Susam",
+            "keywords": [
+                "susam",
+                "tahin",
+                "helva"
+            ],
+            "description": "Susam alerjisi olan kişiler için uygun değildir."
+        },
+        "hardal": {
+            "name": "Hardal",
+            "keywords": [
+                "hardal",
+                "hardal tohumu"
+            ],
+            "description": "Hardal alerjisi nadir görülür ama ciddi olabilir."
+        },
+        "kereviz": {
+            "name": "Kereviz",
+            "keywords": [
+                "kereviz",
+                "sap kereviz"
+            ],
+            "description": "Kereviz alerjisi olan kişiler için dikkat gerektirir."
+        }
+    },
+    "cautionIngredients": {
+        "şeker": {
+            "name": "Şeker",
+            "keywords": [
+                "şeker",
+                "sakkaroz",
+                "fruktoz",
+                "glikoz",
+                "dekstroz",
+                "maltoz",
+                "mısır şurubu",
+                "yüksek fruktozlu mısır şurubu",
+                "bal",
+                "pekmez",
+                "şeker kamışı"
+            ],
+            "description": "Yüksek şeker tüketimi diyabet ve obezite riskini artırır."
+        },
+        "sodyum": {
+            "name": "Yüksek Sodyum",
+            "keywords": [
+                "tuz",
+                "sodyum",
+                "msg",
+                "monosodyum glutamat",
+                "sodyum klorür",
+                "deniz tuzu"
+            ],
+            "description": "Yüksek sodyum tansiyonu artırabilir."
+        },
+        "koruyucu": {
+            "name": "Koruyucular",
+            "keywords": [
+                "sodyum benzoat",
+                "potasyum sorbat",
+                "sodyum nitrit",
+                "sodyum nitrat",
+                "bha",
+                "bht",
+                "tbhq",
+                "e211",
+                "e202",
+                "e250",
+                "e251"
+            ],
+            "description": "Bazı koruyucular hassasiyet oluşturabilir."
+        },
+        "renklendirici": {
+            "name": "Yapay Renklendiriciler",
+            "keywords": [
+                "tartrazin",
+                "e102",
+                "e110",
+                "e122",
+                "e124",
+                "e129",
+                "e133",
+                "yapay renk",
+                "gıda boyası"
+            ],
+            "description": "Bazı yapay renklendiriciler çocuklarda hiperaktiviteyle ilişkilendirilmiştir."
+        },
+        "tatlandırıcı": {
+            "name": "Yapay Tatlandırıcılar",
+            "keywords": [
+                "aspartam",
+                "sükraloz",
+                "sakkarin",
+                "asesülfam",
+                "stevia",
+                "e950",
+                "e951",
+                "e952",
+                "e954",
+                "e955"
+            ],
+            "description": "Yapay tatlandırıcılar bazı kişilerde yan etkilere neden olabilir."
+        },
+        "trans yağ": {
+            "name": "Trans Yağ",
+            "keywords": [
+                "margarin",
+                "hidrojenize",
+                "kısmen hidrojenize",
+                "trans yağ",
+                "bitkisel yağ"
+            ],
+            "description": "Trans yağlar kalp sağlığını olumsuz etkiler."
+        },
+        "kafein": {
+            "name": "Kafein",
+            "keywords": [
+                "kafein",
+                "kahve",
+                "çay ekstraktı",
+                "guarana",
+                "mate"
+            ],
+            "description": "Kafein hassasiyeti olanlar için dikkat gerektirir."
+        }
+    },
+    "dietaryPreferences": {
+        "vegan": {
+            "name": "Vegan",
+            "avoidKeywords": [
+                "et",
+                "tavuk",
+                "balık",
+                "süt",
+                "yumurta",
+                "bal",
+                "jelatin",
+                "peynir",
+                "tereyağı",
+                "krema",
+                "yoğurt",
+                "hayvansal"
+            ],
+            "description": "Hayvansal ürün içermez."
+        },
+        "vejetaryen": {
+            "name": "Vejetaryen",
+            "avoidKeywords": [
+                "et",
+                "tavuk",
+                "balık",
+                "jelatin",
+                "dana",
+                "kuzu",
+                "domuz",
+                "sığır",
+                "hindi",
+                "ördek"
+            ],
+            "description": "Et ve et ürünleri içermez."
+        },
+        "helal": {
+            "name": "Helal",
+            "avoidKeywords": [
+                "domuz",
+                "alkol",
+                "şarap",
+                "bira",
+                "viski",
+                "rom",
+                "votka",
+                "domuz yağı",
+                "jelatin"
+            ],
+            "description": "İslami beslenme kurallarına uygun."
+        },
+        "koşer": {
+            "name": "Koşer",
+            "avoidKeywords": [
+                "domuz",
+                "kabuklu deniz ürünü",
+                "tavşan"
+            ],
+            "description": "Yahudi beslenme kurallarına uygun."
+        }
+    }
+}
