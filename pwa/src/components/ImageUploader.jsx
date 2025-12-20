@@ -43,7 +43,7 @@ function ImageUploader({ onImageSelected, onBarcodeClick }) {
                     onClick={() => cameraInputRef.current?.click()}
                 >
                     <div className="btn-icon">📸</div>
-                    <span>Etiket Çek</span>
+                    <span>İçindekileri Çek</span>
                 </button>
             </div>
 
