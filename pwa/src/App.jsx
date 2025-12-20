@@ -1,10 +1,11 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import './App.css'
 import Header from './components/Header'
 import AllergySelector from './components/AllergySelector'
 import ImageUploader from './components/ImageUploader'
 import ResultCard from './components/ResultCard'
-import { analyzeLabel } from './services/api'
+import BarcodeScanner from './components/BarcodeScanner'
+import { analyzeLabel, analyzeBarcode } from './services/api'
 
 function App() {
     const [selectedAllergies, setSelectedAllergies] = useState([])
@@ -13,12 +14,15 @@ function App() {
     const [analysisResult, setAnalysisResult] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState(null)
+    const [showBarcodeScanner, setShowBarcodeScanner] = useState(false)
+    const [loadingMessage, setLoadingMessage] = useState('')
 
     // Fotoğraf seçildiğinde analiz başlat
     const handleImageSelected = async (imageData) => {
         setSelectedImage(imageData)
         setError(null)
         setIsLoading(true)
+        setLoadingMessage('Etiket analiz ediliyor...')
         setAnalysisResult(null)
 
         try {
@@ -30,6 +34,28 @@ function App() {
             setAnalysisResult(result)
         } catch (err) {
             setError(err.message || 'Analiz sırasında bir hata oluştu')
+        } finally {
+            setIsLoading(false)
+        }
+    }
+
+    // Barkod algılandığında
+    const handleBarcodeDetected = async (barcode) => {
+        setShowBarcodeScanner(false)
+        setError(null)
+        setIsLoading(true)
+        setLoadingMessage(`Ürün aranıyor: ${barcode}`)
+        setAnalysisResult(null)
+
+        try {
+            const result = await analyzeBarcode(
+                barcode,
+                selectedAllergies,
+                selectedPreferences
+            )
+            setAnalysisResult(result)
+        } catch (err) {
+            setError(err.message || 'Barkod sorgusu sırasında bir hata oluştu')
         } finally {
             setIsLoading(false)
         }
@@ -52,7 +78,7 @@ function App() {
                     <div className="card welcome-card animate-fadeIn">
                         <h2>Merhaba! 👋</h2>
                         <p>
-                            Paketli gıdaların etiketini tara, içindekilerini analiz et ve
+                            Paketli gıdaların etiketini veya barkodunu tara, içindekilerini analiz et ve
                             senin için uygun olup olmadığını öğren.
                         </p>
                     </div>
@@ -68,16 +94,27 @@ function App() {
                     />
                 )}
 
-                {/* Fotoğraf Yükleme */}
+                {/* Fotoğraf & Barkod Seçenekleri */}
                 {!analysisResult && !isLoading && (
-                    <ImageUploader onImageSelected={handleImageSelected} />
+                    <ImageUploader
+                        onImageSelected={handleImageSelected}
+                        onBarcodeClick={() => setShowBarcodeScanner(true)}
+                    />
+                )}
+
+                {/* Barkod Tarayıcı Modal */}
+                {showBarcodeScanner && (
+                    <BarcodeScanner
+                        onBarcodeDetected={handleBarcodeDetected}
+                        onClose={() => setShowBarcodeScanner(false)}
+                    />
                 )}
 
                 {/* Yükleniyor */}
                 {isLoading && (
                     <div className="loading-container animate-fadeIn">
                         <div className="spinner"></div>
-                        <p className="loading-text">Etiket analiz ediliyor...</p>
+                        <p className="loading-text">{loadingMessage}</p>
                         <p className="loading-subtext">Bu işlem birkaç saniye sürebilir</p>
                         {selectedImage && (
                             <img src={selectedImage.preview} alt="Seçilen" className="preview-image" />
@@ -109,7 +146,7 @@ function App() {
                     <div className="info-card">
                         <span className="info-icon">ℹ️</span>
                         <p>
-                            En iyi sonuç için etiketin "İçindekiler" bölümünü net bir şekilde çerçeve içine alın.
+                            Barkod tarama ile ürün bilgilerini otomatik çekin veya etiket fotoğrafı ile analiz yapın.
                         </p>
                     </div>
                 )}

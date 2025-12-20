@@ -77,20 +77,42 @@ async function analyzeWithAI(ingredientText, userAllergies = [], userPreferences
       throw new Error('AI yanıtı boş döndü');
     }
 
-    // JSON yanıtını parse et
-    const jsonMatch = aiResponse.match(/```json\n?([\s\S]*?)\n?```/) || aiResponse.match(/\{[\s\S]*\}/);
+    // JSON yanıtını parse et - daha sağlam parsing
+    let jsonStr = '';
 
-    if (!jsonMatch) {
-      console.error('AI yanıtı JSON formatında değil:', aiResponse);
-      // Fallback yanıt oluştur
+    // Önce ```json ... ``` bloğunu dene
+    const jsonBlockMatch = aiResponse.match(/```json\s*([\s\S]*?)\s*```/);
+    if (jsonBlockMatch) {
+      jsonStr = jsonBlockMatch[1];
+    } else {
+      // JSON objesini bul
+      const jsonObjMatch = aiResponse.match(/\{[\s\S]*\}/);
+      if (jsonObjMatch) {
+        jsonStr = jsonObjMatch[0];
+      }
+    }
+
+    if (!jsonStr) {
+      console.error('AI yanıtı JSON formatında değil:', aiResponse.substring(0, 500));
       return createFallbackResponse(ingredientText);
     }
 
-    const jsonStr = jsonMatch[1] || jsonMatch[0];
-    const analysisResult = JSON.parse(jsonStr);
+    // JSON'u temizle
+    jsonStr = jsonStr
+      .replace(/,\s*}/g, '}')  // Trailing comma fix
+      .replace(/,\s*]/g, ']')  // Trailing comma in arrays
+      .replace(/[\x00-\x1F\x7F]/g, ' ') // Control karakterleri temizle
+      .trim();
 
-    console.log('✅ DeepSeek R1 analizi tamamlandı');
-    return analysisResult;
+    try {
+      const analysisResult = JSON.parse(jsonStr);
+      console.log('✅ DeepSeek R1 analizi tamamlandı');
+      return analysisResult;
+    } catch (parseError) {
+      console.error('❌ JSON parse hatası:', parseError.message);
+      console.error('JSON string:', jsonStr.substring(0, 500));
+      return createFallbackResponse(ingredientText);
+    }
   } catch (error) {
     console.error('❌ AI analiz hatası:', error.message);
     throw error;

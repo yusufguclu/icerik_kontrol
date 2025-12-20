@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import './ImageUploader.css'
 
-function ImageUploader({ onImageSelected }) {
+function ImageUploader({ onImageSelected, onBarcodeClick }) {
     const fileInputRef = useRef(null)
     const cameraInputRef = useRef(null)
 
@@ -24,28 +24,36 @@ function ImageUploader({ onImageSelected }) {
 
     return (
         <div className="image-uploader animate-fadeIn">
-            <h2>Ürün Etiketini Tara</h2>
-            <p>İçindekiler bölümünün fotoğrafını çekin veya galeriden seçin</p>
+            <h2>Ürünü Tara</h2>
+            <p>Barkod okut veya etiket fotoğrafı çek</p>
 
             <div className="buttons-container">
-                {/* Kamera Butonu */}
+                {/* Barkod Butonu */}
+                <button
+                    className="upload-btn barcode-btn"
+                    onClick={onBarcodeClick}
+                >
+                    <div className="btn-icon">📊</div>
+                    <span>Barkod Tara</span>
+                </button>
+
+                {/* Fotoğraf Butonu */}
                 <button
                     className="upload-btn camera-btn"
                     onClick={() => cameraInputRef.current?.click()}
                 >
                     <div className="btn-icon">📸</div>
-                    <span>Fotoğraf Çek</span>
-                </button>
-
-                {/* Galeri Butonu */}
-                <button
-                    className="upload-btn gallery-btn"
-                    onClick={() => fileInputRef.current?.click()}
-                >
-                    <div className="btn-icon gallery-icon">🖼️</div>
-                    <span>Galeriden Seç</span>
+                    <span>Etiket Çek</span>
                 </button>
             </div>
+
+            {/* Galeriden Seç - Küçük link olarak */}
+            <button
+                className="gallery-link"
+                onClick={() => fileInputRef.current?.click()}
+            >
+                🖼️ Galeriden fotoğraf seç
+            </button>
 
             {/* Gizli input'lar */}
             <input

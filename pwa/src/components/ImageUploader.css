@@ -45,14 +45,13 @@
     background: var(--primary-dark);
 }
 
-.gallery-btn {
-    background: var(--surface);
-    color: var(--primary);
-    border: 2px solid var(--primary);
+.barcode-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
 }
 
-.gallery-btn:hover {
-    background: var(--safe-bg);
+.barcode-btn:hover {
+    opacity: 0.9;
 }
 
 .btn-icon {
@@ -67,11 +66,24 @@
     margin-bottom: var(--spacing-sm);
 }
 
-.gallery-icon {
-    background: var(--safe-bg);
-}
-
 .upload-btn span {
     font-size: 16px;
     font-weight: 600;
+}
+
+.gallery-link {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: var(--spacing-md);
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.gallery-link:hover {
+    color: var(--primary-dark);
 }

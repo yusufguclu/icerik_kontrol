@@ -62,6 +62,11 @@ app.get('/', (req, res) => {
                 path: '/api/analyze/text',
                 description: 'Metin olarak verilen içeriği analiz eder',
             },
+            barcode: {
+                method: 'GET',
+                path: '/api/barcode/:barcode',
+                description: 'Barkod ile ürün bilgisi ve analiz',
+            },
             allergens: {
                 method: 'GET',
                 path: '/api/analyze/allergens',
@@ -88,6 +93,10 @@ app.get('/health', (req, res) => {
 // Analyze routes
 const analyzeRoutes = require('./routes/analyze');
 app.use('/api/analyze', analyzeRoutes);
+
+// Barcode routes
+const barcodeRoutes = require('./routes/barcode');
+app.use('/api/barcode', barcodeRoutes);
 
 // ==================== Error Handling ====================
 
@@ -127,7 +136,7 @@ async function startServer() {
     // AI servisini başlat
     const aiReady = initializeAI();
     if (!aiReady) {
-        console.log('ℹ️  AI açıklamaları için .env dosyasına GEMINI_API_KEY ekleyin.\n');
+        console.log('ℹ️  AI açıklamaları için .env dosyasına OPENROUTER_API_KEY ekleyin.\n');
     }
 
     // Sunucuyu başlat
