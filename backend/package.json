@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "EtiketKontrol - Gıda Etiketi Analiz API",
   "main": "server.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "build": "npm rebuild sharp"
   },
   "dependencies": {
     "cors": "^2.8.5",

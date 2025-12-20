@@ -1,7 +1,7 @@
 // EtiketKontrol - API Service
 
-// Backend URL - Aynı makinede çalışıyor
-const API_BASE_URL = 'http://localhost:3000';
+// Backend URL - Production'da Render.com URL'i kullanılacak
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
 /**
  * Etiket fotoğrafını analiz eder

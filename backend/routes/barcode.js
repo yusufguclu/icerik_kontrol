@@ -34,7 +34,7 @@ router.get('/:barcode', async (req, res) => {
         if (!productInfo.found) {
             return res.status(404).json({
                 success: false,
-                error: 'Ürün veritabanında bulunamadı. Etiket fotoğrafı ile taramayı deneyin.',
+                error: 'Ürün veritabanında bulunamadı. icindekiler fotoğrafı ile taramayı deneyin.',
                 barcode: barcode,
             });
         }
