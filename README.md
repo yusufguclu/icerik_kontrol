@@ -1,11 +1,5 @@
 # 🔍 EtiketKontrol - Gıda İçerik Analiz Uygulaması
 
-<p align="center">
-  <img src="https://img.shields.io/badge/React-18.3-61DAFB?style=for-the-badge&logo=react&logoColor=white" alt="React" />
-  <img src="https://img.shields.io/badge/Node.js-22-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
-  <img src="https://img.shields.io/badge/Vite-6.0-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
-  <img src="https://img.shields.io/badge/PWA-Ready-5A0FC8?style=for-the-badge&logo=pwa&logoColor=white" alt="PWA" />
-</p>
 
 ## 📖 Proje Hakkında
 
@@ -232,6 +226,3 @@ icerik_kontrol/
 
 ---
 
-## 📄 Lisans
-
-Bu proje MIT lisansı altında lisanslanmıştır.
